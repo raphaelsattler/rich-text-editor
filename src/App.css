@@ -40,3 +40,7 @@
 .buttons-scss-class-name {
   color: blue;
 }
+
+.editor-container-scss-class-name {
+  border: solid 1px black
+}
