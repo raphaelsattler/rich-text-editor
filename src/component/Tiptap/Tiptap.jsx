@@ -3,7 +3,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import "./styles.scss";
 
-const MenuBar = ({ editor, buttons, buttonClassName }) => {
+const MenuBar = ({ editor, buttons, buttonsClassName }) => {
   if (!editor) {
     return null;
   }
@@ -13,7 +13,7 @@ const MenuBar = ({ editor, buttons, buttonClassName }) => {
       {!!buttons?.includes("bold") && (
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={editor.isActive("bold") ? "is-active" : "", buttonClassName}
+          className={editor.isActive("bold") ? "is-active" : "", buttonsClassName}
         >
           bold
         </button>
@@ -21,7 +21,7 @@ const MenuBar = ({ editor, buttons, buttonClassName }) => {
       {!!buttons?.includes("italic") && (
         <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive("italic") ? "is-active" : ""}
+        className={editor.isActive("italic") ? "is-active" : "", buttonsClassName}
       >
         italic
       </button>
@@ -123,7 +123,7 @@ const MenuBar = ({ editor, buttons, buttonClassName }) => {
 };
 
 function Tiptap(props) {
-  const { buttons, buttonClassName, editorClassName } = props;
+  const { buttons, buttonsClassName, editorClassName } = props;
 
   const editor = useEditor({
     editorProps: {
@@ -142,7 +142,7 @@ function Tiptap(props) {
 
   return (
     <div>
-      <MenuBar editor={editor} buttons={buttons} buttonClassName={buttonClassName} />
+      <MenuBar editor={editor} buttons={buttons} buttonsClassName={buttonsClassName} />
       <EditorContent editor={editor} editorClassName={editorClassName} />
     </div>
   );
